@@ -1,4 +1,4 @@
-./config.js
-./log.txt
+/config.js
+log.txt
 node_modules
 .idea
