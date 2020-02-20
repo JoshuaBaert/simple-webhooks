@@ -27,14 +27,6 @@ function dataLog(data) {
 endpoints.forEach(({command, url, passPhrase}) => {
     app.post(url, (req, res, next) => {
         if(req.body.passPhrase === passPhrase) {
-<<<<<<< HEAD
-            exec(command, {}, (err, stdo, stde) => {
-                if(err) {
-                    res.sendStatus(500);
-                    return console.error(err);
-                }
-                if(stdo) log(stdo);
-                if(stde) log(stde);
             let commands = command.split(' ');
             let process = spawn(commands[0], commands.slice(1));
             process.stdout.on('data', dataLog);
