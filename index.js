@@ -21,7 +21,7 @@ function log(txt) {
 endpoints.forEach(({command, url, passPhrase}) => {
     app.post(url, (req, res, next) => {
         if(req.body.passPhrase === passPhrase) {
-            let process = exec(command, {}, (err, stdo, stde) => {
+            exec(command, {}, (err, stdo, stde) => {
                 if(err) {
                     res.sendStatus(500);
                     return console.error(err);
