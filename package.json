@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --inspect ./index.js",
-    "start:prod": "pm2 start index.js"
+    "start:prod": "forever --id \"webhooks\" start ./index.js"
   },
   "author": "",
   "license": "ISC",
