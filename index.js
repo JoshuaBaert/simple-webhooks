@@ -27,6 +27,14 @@ function dataLog(data) {
 endpoints.forEach(({command, url, passPhrase}) => {
     app.post(url, (req, res, next) => {
         if(req.body.passPhrase === passPhrase) {
+            log(`
+
+
+Starting webhook ${command} at ${new Date().toISOString()}
+
+
+            `)
+
             let commands = command.split(' ');
             let process = spawn(commands[0], commands.slice(1));
             process.stdout.on('data', dataLog);
